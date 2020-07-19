@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Talent extends Model
 {
+    protected $table = 'talents';
+
     public function category(): BelongsTo
     {
         return $this->belongsTo(Category::class);
