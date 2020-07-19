@@ -15,6 +15,6 @@ class TalentController extends Controller
 
     public function show(Talent $talent)
     {
-        return view('talents.show', compact('talents'));
+        return view('talents.show', compact('talent'));
     }
 }
