@@ -144,6 +144,9 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'project_name' => '案件名',
+        'add_talents' => 'タレント追加',
+    ],
 
 ];
