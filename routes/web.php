@@ -21,6 +21,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('talents', 'TalentController@index')->name('talents.index');
 Route::get('talents/{talent}', 'TalentController@show')->name('talents.show');
-
-Route::get('projects/create', 'ProjectController@create')->name('projects.create');
-Route::post('projects', 'ProjectController@store')->name('projects.store');
