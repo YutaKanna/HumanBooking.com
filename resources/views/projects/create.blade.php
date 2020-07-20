@@ -37,14 +37,14 @@
                                     <div class="modal-body">
                                         @foreach($talents as $talent)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox" id="check-{{ $talent->id }}">
-                                                <label class="form-check-label" for="check-{{ $talent->id }}" value="{{ $talent->id }}">{{ $talent->name }}</label>
+                                                <input class="form-check-input" type="checkbox" name="talents[]" id="check-{{ $talent->id }}" value="{{ $talent->id }}">
+                                                <label class="form-check-label" for="check-{{ $talent->id }}">{{ $talent->name }}</label>
                                             </div>
                                         @endforeach
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                        <button type="button" class="btn btn-primary">OK</button>
+                                        <!-- data-dismissは消した方がいい? -->
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
                                     </div>
                                     </div>
                                 </div>
