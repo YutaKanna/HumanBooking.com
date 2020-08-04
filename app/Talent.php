@@ -28,4 +28,17 @@ class Talent extends Model
             'offer_id',
         );
     }
+
+    /**
+     * @return BelongsToMany
+     */
+    public function planners(): BelongsToMany
+    {
+        return $this->belongsToMany(
+            Planner::class,
+            'planner_talent',
+            'talent_id',
+            'planner_id',
+        );
+    }
 }
