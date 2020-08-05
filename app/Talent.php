@@ -32,13 +32,13 @@ class Talent extends Model
     /**
      * @return BelongsToMany
      */
-    public function planners(): BelongsToMany
+    public function agencies(): BelongsToMany
     {
         return $this->belongsToMany(
             Planner::class,
-            'planner_talent',
+            'agency_talent',
             'talent_id',
-            'planner_id',
+            'agency_id',
         );
     }
 }
