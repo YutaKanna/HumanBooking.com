@@ -24,3 +24,14 @@ Route::get('talents/{talent}', 'TalentController@show')->name('talents.show');
 
 Route::get('projects/create', 'ProjectController@create')->name('projects.create');
 Route::post('projects', 'ProjectController@store')->name('projects.store');
+
+Route::group(['prefix' => 'agency'],function(){
+   Route::get('login','Agency\LoginController@showLoginForm')->name('agencies.login');
+   Route::post('login','Agency\LoginController@authenticate')->name('agencies.authenticate');
+});
+
+//ログイン後
+Route::group(['prefix' => 'agency','middleware' => 'auth:agency'],function(){
+   Route::get('', 'Agency\AgencyController@index')->name('agencies.index');
+   Route::post('logout','Agency\LoginController@logout')->name('agencies.logout');
+ });

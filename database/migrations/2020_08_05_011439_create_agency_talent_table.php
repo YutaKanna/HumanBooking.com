@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePlannerTalentTable extends Migration
+class CreateAgencyTalentTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreatePlannerTalentTable extends Migration
      */
     public function up()
     {
-        Schema::create('planner_talent', function (Blueprint $table) {
-            $table->integer('planner_id')->unsigned();
-            $table->foreign('planner_id')->references('id')->on('planners');
+        Schema::create('agency_talent', function (Blueprint $table) {
+            $table->integer('agency_id')->unsigned();
+            $table->foreign('agency_id')->references('id')->on('agencies');
             $table->integer('talent_id')->unsigned();
             $table->foreign('talent_id')->references('id')->on('talents');
         });
@@ -28,6 +28,6 @@ class CreatePlannerTalentTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('planner_talent');
+        Schema::dropIfExists('agency_talent');
     }
 }
