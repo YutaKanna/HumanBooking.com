@@ -13,5 +13,6 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(InitCategoriesSeeder::class);
         $this->call(DummyAgenciesSeeder::class);
+        $this->call(DummyPlannersSeeder::class);
     }
 }

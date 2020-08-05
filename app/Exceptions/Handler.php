@@ -53,7 +53,9 @@ class Handler extends ExceptionHandler
     public function unauthenticated($request, AuthenticationException $exception)
     {
         if (in_array('agency', $exception->guards())) {
-           return redirect()->guest(route('agency.login'));
+           return redirect()->guest(route('agencies.login'));
+        } elseif (in_array('planner', $exception->guards())) {
+            return redirect()->guest(route('planners.login'));
         }
     }
 }
