@@ -15,18 +15,10 @@ class Agency extends Authenticatable
 
     protected $fillable = ['name','email','password'];
 
-   protected $hidden = ['password', ];
+   protected $hidden = ['password'];
 
-    /**
-     * @return BelongsToMany
-     */
-    public function talents(): BelongsToMany
-    {
-        return $this->belongsToMany(
-            Talent::class,
-            'agency_talent',
-            'agency_id',
-            'talent_id',
-        );
-    }
+   public function talents(): HasMany
+   {
+       return $this->hasMany(Talent::class);
+   }
 }

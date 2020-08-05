@@ -48,3 +48,7 @@ Route::group(['prefix' => 'planner','middleware' => 'auth:planner'],function(){
    Route::get('', 'Planner\PlannerController@index')->name('planners.index');
    Route::post('logout','Planner\LoginController@logout')->name('planners.logout');
  });
+
+// notification
+Route::get('notifications', 'NotificationController@index')->name('notifications.index');
+Route::get('notifications/{notification}', 'NotificationController@show')->name('notifications.show');

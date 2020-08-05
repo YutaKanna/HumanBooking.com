@@ -22,6 +22,8 @@ class CreateTalentsTable extends Migration
             $table->text('profile');
             $table->integer('category_id')->unsigned();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
+            $table->integer('agency_id')->unsigned();
+            $table->foreign('agency_id')->references('id')->on('agencies')->onDelete('cascade');
             $table->rememberToken();
             $table->timestamps();
         });
