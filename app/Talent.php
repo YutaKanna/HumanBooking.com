@@ -29,16 +29,8 @@ class Talent extends Model
         );
     }
 
-    /**
-     * @return BelongsToMany
-     */
-    public function agencies(): BelongsToMany
+    public function agency(): BelongsTo
     {
-        return $this->belongsToMany(
-            Planner::class,
-            'agency_talent',
-            'talent_id',
-            'agency_id',
-        );
+        return $this->belongsTo(Agency::class);
     }
 }

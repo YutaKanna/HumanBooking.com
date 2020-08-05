@@ -34,6 +34,11 @@ Route::group(['prefix' => 'agency'],function(){
 //ログイン後
 Route::group(['prefix' => 'agency','middleware' => 'auth:agency'],function(){
    Route::get('', 'Agency\AgencyController@index')->name('agencies.index');
+   // notification
+   // todo: {agency}/notificationsにURLを変更
+   Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
+   Route::get('notifications/{notificationId}', 'NotificationsController@show')->name('notifications.show');
+
    Route::post('logout','Agency\LoginController@logout')->name('agencies.logout');
  });
 
