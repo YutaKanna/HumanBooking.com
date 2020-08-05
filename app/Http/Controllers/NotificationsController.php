@@ -35,8 +35,15 @@ class NotificationsController extends Controller
         return view('notifications.index', compact('agency', 'unreadNotifications', 'notifications'));
     }
 
-    public function show(Talent $talent)
+    public function show($notificationId)
     {
-        return view('notifications.show', compact('talent'));
+        // composerに移す
+        $agency = Auth::user();
+        $notification = $agency->notifications()->where('id', $notificationId)->first();
+        $notification->markAsRead();
+        // composerに移す
+        $unreadNotifications = $agency->unreadNotifications;
+
+        return view('notifications.show', compact('agency', 'unreadNotifications', 'notification'));
     }
 }
