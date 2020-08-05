@@ -34,6 +34,11 @@ Route::group(['prefix' => 'agency'],function(){
 //ログイン後
 Route::group(['prefix' => 'agency','middleware' => 'auth:agency'],function(){
    Route::get('', 'Agency\AgencyController@index')->name('agencies.index');
+   // notification
+   // todo: {agency}/notificationsにURLを変更
+   Route::get('notifications', 'NotificationsController@index')->name('notifications.index');
+   Route::get('notifications/{notification}', 'NotificationsController@show')->name('notifications.show');
+
    Route::post('logout','Agency\LoginController@logout')->name('agencies.logout');
  });
 
@@ -48,7 +53,3 @@ Route::group(['prefix' => 'planner','middleware' => 'auth:planner'],function(){
    Route::get('', 'Planner\PlannerController@index')->name('planners.index');
    Route::post('logout','Planner\LoginController@logout')->name('planners.logout');
  });
-
-// notification
-Route::get('notifications', 'NotificationController@index')->name('notifications.index');
-Route::get('notifications/{notification}', 'NotificationController@show')->name('notifications.show');

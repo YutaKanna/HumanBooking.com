@@ -41,9 +41,8 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @if (isset($unreadNotifications))
-                            <li class="nav-item" style="margin-top: 9px;margin-right: 8px;">
-                                {{ count($unreadNotifications) }}
-                                <a class="nav-link" href="{{ route('projects.create') }}"><i class="far fa-bell fa-lg"></i></a>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('notifications.index') }}">{{ count($unreadNotifications) }}<i class="far fa-bell fa-lg"></i></a>
                             </li>
                         @endif
                         <li class="nav-item">
